@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A versatile pipeline for controllable 3D virtual try-on with Gaussian Splatting">
+  <meta name="keywords" content="3D generative model, diffusion models, virtual try-on">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GS-VTON</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/result.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">VTON 360: High-Fidelity Virtual Try-On from Any Viewing Direction</h1>
+          <!-- <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="https://yukangcao.github.io/">Yukang Cao</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://openreview.net/profile?id=~Masoud_Hadi1">Masoud Hadi</a><sup>3*</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN">Liang Pan</a><sup>2†</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>1†</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="footnote"><sup>*</sup>Equal contributions  <sup>†</sup>Corresponding authors</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <p>
+            <span class="author-block"><sup>1</sup>S-Lab Nanyang Technological University <sup>2</sup>Shanghai AI Laboratory</span>  <sup>3</sup>Isfahan University of Technology</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            Preprint 2024
+          </div> -->
+
+          <!-- <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.05259"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/yukangcao/GS-VTON"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="my-hr">
+  <hr>
+</div>
+
+<script>
+let currentSlideIndex = 0;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides[currentSlideIndex].style.display = 'none'; // Hide current slide
+    dots[currentSlideIndex].classList.remove('active'); // Remove active class from current dot
+
+    currentSlideIndex = (currentSlideIndex + step + slides.length) % slides.length;
+
+    slides[currentSlideIndex].style.display = 'block'; // Show new slide
+    dots[currentSlideIndex].classList.add('active'); // Add active class to new dot
+}
+
+// Initial setup to hide all slides except the first one
+document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.style.display = (index === 0) ? 'block' : 'none'; // Show the first slide and hide others
+});
+
+// Automatically change slides every 10 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 10000); // Change slide every 10 seconds
+
+// Update display initially
+document.querySelectorAll('.dot')[currentSlideIndex].classList.add('active'); // Set first dot active
+</script>
+</section>  
+
+</html>
